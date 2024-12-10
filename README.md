@@ -40,18 +40,39 @@ Before running the project, ensure the following Python libraries are installed:
 ## Usage
 Each clustering algorithm is implemented in a separate Python script:
 
-- `K-means_Clustering.py`: Implements K-Means clustering.
+- `K-means_Clustering.py`: Implements the K-Means clustering algorithm.
 - `Agglomerative_Clustering.py`: Implements hierarchical agglomerative clustering.
-- `DBSCAN_Clustering.py`: Implements DBSCAN clustering.
+- `DBSCAN_Clustering.py`: Implements the DBSCAN clustering algorithm.
 
-Run the desired script:
+This project provides a unified entry point through `main.py`, allowing you to specify the clustering algorithm and its parameters via command-line arguments. Currently, the supported algorithms are **K-Means**, **Hierarchical/Agglomerative Clustering**, and **DBSCAN**.
+
+### Example Usage
+
+- **Running K-Means**:
+  ```bash
+  python main.py --algorithm kmeans \
+                 --n_samples 10000 \
+                 --n_features 4 \
+                 --n_clusters 7 \
+                 --num_iterations 5000
+  ```
+  Parameter description:
+
+  - `--algorithm kmeans`: Specifies the algorithm to run as K-Means.
+  - `--n_samples 10000`: Number of data samples to use.
+  - `--n_features 4`: Dimensionality of each data point (number of features).
+  - `--n_clusters 7`: Number of clusters to form.
+  - `--num_iterations 5000`: Number of iterations for centroid updates.
+
+If you wish to extend the project with additional algorithms or parameters, you only need to implement the logic in the respective algorithm script and add the corresponding argument parsing and function call in `main.py`.
+
+### Running Scripts Directly (Non-Parameterized)
+If you prefer to run individual clustering scripts directly (e.g., `K_means_Clustering.py`), you can do so by executing:
+
 ```bash
-python script_name.py
+python K_means_Clustering.py
 ```
-For example, to run K-Means clustering:
-```bash
-python K-means_Clustering.py
-```
+The same applies to other scripts like `Agglomerative_Clustering.py` and `DBSCAN_Clustering.py`. However, it is recommended to use `main.py` for a more flexible and parameterized approach.
 
 ## Algorithms Overview
 
