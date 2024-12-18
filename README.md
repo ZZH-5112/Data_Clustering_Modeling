@@ -50,19 +50,19 @@ This project provides a unified entry point through `main.py`, allowing you to s
 
 - **Running K-Means**:
   ```bash
-  python main.py --algorithm kmeans \
-                 --n_samples 10000 \
-                 --n_features 4 \
+  python main.py --file_path Data/CSV_Data/Data_samples300_clusters5.csv \
+                 --algorithm kmeans \
                  --n_clusters 7 \
-                 --num_iterations 5000
+                 --num_iterations 300
+              
   ```
   Parameter description:
-
+  - `--file_path`: the root of data.
   - `--algorithm kmeans`: Specifies the algorithm to run as K-Means.
-  - `--n_samples 10000`: Number of data samples to use.
-  - `--n_features 4`: Dimensionality of each data point (number of features).
   - `--n_clusters 7`: Number of clusters to form.
-  - `--num_iterations 5000`: Number of iterations for centroid updates.
+  - `--num_iterations 300`: Number of iterations for centroid updates.
+  - `--selected_features 1 2 4`: Select the feature columns to use (in this example, columns 1, 2, and 4 are selected). If not specified, all features are used by default.
+  - `--dimensionality_reduction`: Enable dimensionality reduction processing.
 
 If you wish to extend the project with additional algorithms or parameters, you only need to implement the logic in the respective algorithm script and add the corresponding argument parsing and function call in `main.py`.
 
